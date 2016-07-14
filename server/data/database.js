@@ -16,6 +16,32 @@ class Feature {
   }
 }
 
+import mongoose from 'mongoose';
+
+const WordSchema = new mongoose.Schema({
+  id: { type: String, required: true, unique: true, index: true, default: mongoose.Types.ObjectId },
+  en: String,
+  ru: Array
+});
+
+const Word = mongoose.model('words', WordSchema);
+
+// Word.findOne({ _id: '577f6dd1dcba0f080ba92bc2' }, (err, res) => {
+//   console.log(res);
+// });
+
+function getWord(root, { id }) {
+  return new Promise((resolve, reject) => {
+    Word.findOne({ _id: id }, (err, res) => {
+      if (res) {
+        resolve(res);
+      } else {
+        reject(err);
+      }
+    });
+  });
+}
+
 const lvarayut = new User('1', 'Varayut Lerdkanlayanawat', 'lvarayut', 'https://github.com/lvarayut/relay-fullstack');
 const features = [
   new Feature('1', 'React', 'A JavaScript library for building user interfaces.', 'https://facebook.github.io/react'),
@@ -28,13 +54,12 @@ const features = [
   new Feature('8', 'MDL', 'Material Design Lite lets you add a Material Design to your websites.', 'http://www.getmdl.io')
 ];
 
-
 function getUser(id) {
   return id === lvarayut.id ? lvarayut : null;
 }
 
 function getFeature(id) {
-  return features.find(w => w.id === id);
+  return features.find(f => f.id === id);
 }
 
 function getFeatures() {
@@ -44,7 +69,9 @@ function getFeatures() {
 export {
   User,
   Feature,
+  Word,
   getUser,
   getFeature,
+  getWord,
   getFeatures
 };

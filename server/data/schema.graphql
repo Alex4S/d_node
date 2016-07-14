@@ -33,6 +33,7 @@ type PageInfo {
 type Query {
   node(id: ID!): Node
   viewer: User
+  word(id: ID): Word
 }
 
 type User implements Node {
@@ -40,4 +41,10 @@ type User implements Node {
   features(after: String, first: Int, before: String, last: Int): FeatureConnection
   username: String
   website: String
+}
+
+type Word implements Node {
+  id: ID!
+  en: String
+  ru: [String]
 }
