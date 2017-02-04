@@ -11,6 +11,8 @@
 > Relay Fullstack is a Relay scaffolding application that aims to help you get up and running a project without worrying about integrating tools. It comes with many modern technologies; Relay, GraphQL, Express, ES6/ES7, JSX, Webpack, Babel, Material Design Lite, and PostCSS. Relay Fullstack is also using [Hot-reload](https://github.com/gaearon/react-transform-hmr) to real time update the screen whenever any code changes.
 
 ## Example 
+
+[![Greenkeeper badge](https://badges.greenkeeper.io/Alex4S/d_node.svg)](https://greenkeeper.io/)
 ![Demo](https://cloud.githubusercontent.com/assets/4281887/13377800/9c4705a2-de1d-11e5-82cb-745e16d5b1c4.gif)
 > Check out the [Live demo](http://relay-fullstack.herokuapp.com) on Heroku.
 
